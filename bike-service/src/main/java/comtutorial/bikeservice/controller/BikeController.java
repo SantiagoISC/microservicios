@@ -42,9 +42,6 @@ public class BikeController {
     @GetMapping(value = "/byUser/{userId}")
     public ResponseEntity<List<Bike>> getByUserId(@PathVariable("userId") int userId) {
         List<Bike> bikers = bikeService.findByUserId(userId);
-        if (bikers.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(bikers);
     }
 }
